@@ -1033,7 +1033,7 @@ textarea.big{width:100%;min-height:150px;padding:12px;border:1px solid var(--lin
 .quote{background:var(--white);border-radius:22px;padding:28px;box-shadow:var(--shadow);border-left:6px solid var(--sun)}
 .quote p{font-family:Fraunces,serif;font-size:1.2rem;margin:0 0 16px;line-height:1.45}
 .quote b{display:block}.quote small{color:var(--muted)}
-.pakete{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px;align-items:stretch}
+.pakete{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;align-items:stretch}
 .pk{background:var(--sand);border:2px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;position:relative}
 .pk.top{border-color:var(--sea);background:var(--white);box-shadow:var(--shadow)}
 .pk .tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--sea);color:#fff;font-size:.78rem;font-weight:600;padding:3px 12px;border-radius:99px;white-space:nowrap}
@@ -1203,6 +1203,15 @@ label.chk{display:flex;gap:8px;align-items:flex-start;margin:6px 0;font-weight:5
 .bad .faehre{font-size:.86rem;color:var(--muted);margin:-4px 0 8px}
 .bad .faehre b{color:var(--sea)}
 .emptyisle{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;max-width:760px}
+.isles{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:22px}
+.isle{background:var(--white);border:2px solid var(--line);border-radius:16px;padding:16px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:4px;transition:border-color .2s}
+.isle:hover{border-color:var(--sea)}.isle b{font-family:Fraunces,Georgia,serif;font-size:1.2rem}.isle span{font-size:.82rem;color:var(--sea2);word-break:break-all}
+.isle.other{background:var(--foam)}
+.islprice{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;text-align:center}
+.islprice div{background:var(--sea);color:#fff;border-radius:16px;padding:14px}.islprice b{font-family:Fraunces,Georgia,serif;font-size:1.8rem;display:block;line-height:1.1}.islprice small{opacity:.85}
+@media(max-width:900px){.isles{grid-template-columns:1fr 1fr}}
+.adcard{border:2px dashed var(--sea2);background:var(--foam);border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px;gap:10px;min-height:260px;cursor:pointer}
+.adcard .ic{font-size:2.2rem}.adcard b{font-family:Fraunces,Georgia,serif;font-size:1.2rem}.adcard small{color:var(--muted)}
 </style>
 </head>
 <body class="vmode">
@@ -1362,7 +1371,7 @@ label.chk{display:flex;gap:8px;align-items:flex-start;margin:6px 0;font-weight:5
         <div class="ctas"><button class="btn big" onclick="startDraft()">Kostenlosen Entwurf erstellen</button><button class="btn ghost light" onclick="go('#lKI')">So funktioniert es</button></div>
         <div class="livecard" onclick="vOpen('vermieter',true)" role="button" tabindex="0">
           <span class="livemic">🎙️</span>
-          <span class="livetxt"><b>Fragen Sie uns einfach – live per Sprache</b><small>„Was kostet der Vollservice?“ · „Wie schnell ist meine Website fertig?“ · „Brauche ich eine eigene Domain?“</small></span>
+          <span class="livetxt"><b>Fragen Sie uns einfach – live per Sprache</b><small>„Was kostet meine Inselseite?“ · „Wie schnell ist meine Website fertig?“ · „Brauche ich eine eigene Domain?“</small></span>
           <span class="livego">Gespräch starten</span>
         </div>
         <div class="hchips"><span>📞 24/7-Hotline für Ihre Gäste</span><span>🗣️ Spricht mit Ihren Gästen</span><span>🎤 Per Sprache eingeben</span><span>📷 KI erkennt Ihre Fotos</span><span>🌐 Eigene Adresse</span><span>💬 Anfragen per WhatsApp</span></div>
@@ -1382,7 +1391,18 @@ label.chk{display:flex;gap:8px;align-items:flex-start;margin:6px 0;font-weight:5
         <div class="eyebrow">Angebote</div>
         <h2>Wählen Sie, was zu Ihnen passt</h2>
         <div class="pakete" id="paketGrid"></div>
-        <p class="muted" style="text-align:center;font-size:.9rem;margin-top:14px">Zum Vergleich: Große Buchungsportale behalten meist 15 % und mehr, teils bis 25 % je Buchung – Vollservice vor Ort kostet meist 25 bis 30 %. Sie können jederzeit wechseln.</p>
+        <p class="muted" style="text-align:center;font-size:.9rem;margin-top:14px">Zum Vergleich: Große Buchungsportale behalten meist 15 % und mehr, teils bis 25 % je Buchung. Sie können jederzeit wechseln.</p>
+      </div>
+    </section>
+
+    <section class="lsec" id="lInsel">
+      <div class="wrap">
+        <div class="eyebrow">Ihre Inselseite</div>
+        <h2>Ihre Unterkunft als eigene Unterseite – auf Ihrer Insel</h2>
+        <p class="lead">Vermieter auf Sylt, Amrum, Föhr und Wangerooge bekommen ihre eigene Unterseite direkt auf der Inselseite. Liegt Ihre Unterkunft woanders an der Nordsee, legen Sie Ihre Unterseite bei NordseeBnB an.</p>
+        <div class="isles"><a class="isle" href="https://syltbnb.de/" target="_blank" rel="noopener"><b>Sylt</b><span>syltbnb.de/ihr-name</span></a><a class="isle" href="https://amrumbnb.de/" target="_blank" rel="noopener"><b>Amrum</b><span>amrumbnb.de/ihr-name</span></a><a class="isle" href="https://foehrbnb.de/" target="_blank" rel="noopener"><b>Föhr</b><span>foehrbnb.de/ihr-name</span></a><a class="isle" href="https://wangeroogebnb.de/" target="_blank" rel="noopener"><b>Wangerooge</b><span>wangeroogebnb.de/ihr-name</span></a><a class="isle other" href="https://nordseebnb.de/" target="_blank" rel="noopener"><b>Alle anderen Orte</b><span>nordseebnb.de/ihr-name</span></a></div>
+        <div class="islprice"><div><b>99 €</b><small>im ersten Jahr</small></div><div><b>20 €</b><small>pro Jahr danach</small></div><div><b>0 %</b><small>Provision auf Ihre Buchungen</small></div></div>
+        <div style="text-align:center;margin-top:18px"><button class="btn" onclick="pickPaket('website')">Jetzt Inselseite anlegen</button></div>
       </div>
     </section>
 
@@ -1481,7 +1501,7 @@ label.chk{display:flex;gap:8px;align-items:flex-start;margin:6px 0;font-weight:5
           <div class="ft"><span>🌐</span><b>Eigene Adresse</b><small>Ihre Domain oder ihr-name.nordseebnb.de</small></div>
           <div class="ft"><span>🗣️</span><b>Digitaler Gastgeber</b><small>Beantwortet per Sprache Fragen zu Preisen, freien Terminen, Fähren und Ausflügen – rund um die Uhr</small></div>
           <div class="ft"><span>🌍</span><b>Mehrsprachig (optional)</b><small>Deutsch, Englisch, Dänisch, Niederländisch, Französisch</small></div>
-          <div class="ft"><span>🔧</span><b>Hilfe vor Ort (Vollservice)</b><small>Reinigung und kleine Reparaturen – je nach Insel mit Partnern vor Ort, auf Anfrage</small></div>
+          <div class="ft"><span>🏝️</span><b>Ihre Inselseite</b><small>Unterseite auf syltbnb.de, amrumbnb.de, foehrbnb.de, wangeroogebnb.de oder nordseebnb.de</small></div>
           <div class="ft"><span>🛠️</span><b>Änderungen inklusive</b><small>Neue Preise oder Fotos? Kurz sagen – wir ändern es</small></div>
         </div>
       </div>
@@ -1797,12 +1817,10 @@ var PORTAL = {
 var PAKETE = [
   { id:"portal",  name:"Portal-Eintrag", provision:"0 %", grundgebuehr:"", einheit:"pro Jahr",
     leistungen:["Eintrag mit Fotos, Preisen und Beschreibung","Ihr Punkt auf der Portal-Karte mit Preis","Anfragen per E-Mail oder WhatsApp","Eigene Objektnummer"] },
-  { id:"website", name:"Website + Portal", provision:"0 %", grundgebuehr:"", einheit:"pro Jahr", top:true,
-    leistungen:["Alles aus dem Portal-Eintrag","Eigene Website mit Galerie, Preisrechner und Karte","Sprachassistent beantwortet Gästefragen rund um die Uhr","ihr-name.nordseebnb.de oder eigene Domain","Änderungen an Preisen und Fotos inklusive"] },
+  { id:"website", name:"Inselseite + Portal", provision:"0 %", grundgebuehr:"99 €", einheit:"im 1. Jahr, danach 20 € pro Jahr", top:true,
+    leistungen:["Alles aus dem Portal-Eintrag","Eigene Website mit Galerie, Preisrechner und Karte","Sprachassistent beantwortet Gästefragen rund um die Uhr","Ihre Unterseite auf syltbnb.de, amrumbnb.de, foehrbnb.de oder wangeroogebnb.de – alle anderen Orte unter nordseebnb.de","Änderungen an Preisen und Fotos inklusive"] },
   { id:"service", name:"Website + Buchungsservice", provision:"10 %",
-    leistungen:["Alles aus Website + Portal","Wir beantworten Anfragen und schicken Angebote","Belegungsplan, Rechnungen und Zahlungseingang","Website und Gäste-Assistent in 5 Sprachen"] },
-  { id:"voll", name:"Vollservice", provision:"20 %", voll:true, vergleich:"statt meist 25–30 % · je nach Insel auf Anfrage",
-    leistungen:["Alles aus dem Buchungsservice","Reinigung und Wäsche nach jedem Gast","Schlüsselübergabe und Ansprechpartner vor Ort – mit Partnern auf der Insel","Hilfe bei kleinen Reparaturen","Gästebetreuung von der Anfrage bis zur Abreise","Kurkarten, Kurabgabe und Organisation"] }
+    leistungen:["Alles aus Inselseite + Portal","Wir beantworten Anfragen und schicken Angebote","Belegungsplan, Rechnungen und Zahlungseingang","Website und Gäste-Assistent in 5 Sprachen"] }
 ];
 var VOICE = { endpoint: "https://blue-lagune-proxy.friesh.workers.dev/live", maxMinutes: 5 };
 var GROSSPORTALE = "15–25 %";   // Vergleichswert für die Verkaufsseite
@@ -1849,15 +1867,16 @@ function saison(d){var m=(d.getMonth()+1)*100+d.getDate();
   return"vor"}
 
 var FAQ = [
-  ["Was kostet mich das?","Mit Portal-Eintrag oder eigener Website zahlen Sie eine feste Gebühr – und 0 % Provision auf Ihre Buchungen. Beim Buchungsservice nehmen wir 10 % – große Buchungsportale behalten meist 15 % und mehr, je nach Portal und Programm bis zu 25 %. Beim Vollservice nehmen wir 20 %; Vollservice vor Ort kostet sonst meist 25 bis 30 %."],
-  ["Was heißt Vollservice?","Sie müssen sich um nichts kümmern: Wir beantworten Anfragen, schreiben Angebote und Rechnungen, organisieren Reinigung und Wäsche, übergeben die Schlüssel, melden die Kurkarten an und sind für Ihre Gäste da – von der ersten Anfrage bis zur Abreise. Auf den Nordseeinseln arbeiten wir dafür mit Partnern vor Ort zusammen; ob der Vollservice auf Ihrer Insel möglich ist, klären wir persönlich. Der Preis: 20 % statt der sonst üblichen 25 bis 30 % – mit über 20 Jahren Erfahrung in der Vermietung."],
+  ["Was kostet mich das?","Ihre Website als Unterseite einer Inselseite kostet 99 € im ersten Jahr, danach 20 € pro Jahr – und 0 % Provision auf Ihre Buchungen. Beim Buchungsservice nehmen wir 10 % – große Buchungsportale behalten meist 15 % und mehr, je nach Portal und Programm bis zu 25 %."],
+  ["Wo liegt meine Unterseite?","Liegt Ihre Unterkunft auf Sylt, Amrum, Föhr oder Wangerooge, bekommen Sie Ihre Unterseite auf der jeweiligen Inselseite, zum Beispiel amrumbnb.de/ihr-name. Alle anderen Orte an der Nordsee legen ihre Unterseite bei NordseeBnB an: nordseebnb.de/ihr-name. Preis: 99 € im ersten Jahr, danach 20 € pro Jahr."],
+  ["Bieten Sie auch einen Vollservice an?","An der Nordsee derzeit noch nicht. Für Reinigung, Schlüsselübergabe und Hilfe vor Ort bauen wir gerade ein Netz von Partnern auf. Sobald das steht, sagen wir Bescheid."],
   ["Wie melde ich mich an?","Sie legen mit Ihrer E-Mail-Adresse und einem Passwort einen Zugang an. Wir schicken Ihnen einen 6-stelligen Code per E-Mail – den geben Sie ein, und schon können Sie Ihre Seite erstellen."],
   ["Brauche ich technisches Wissen?","Nein. Sie sprechen oder tippen Ihre Angaben ins Handy und laden Fotos aus Ihrer Galerie hoch. Den Rest erledigen die KI und wir."],
   ["Kann ich meine bisherigen Portale behalten?","Ja. Die eigene Website ist eine Ergänzung. Viele Vermieter nutzen sie, damit Stammgäste und Weiterempfehlungen direkt buchen – ohne Provision."],
   ["Wie kommen die Anfragen zu mir?","Per E-Mail oder per WhatsApp – Sie entscheiden. Jede Anfrage beginnt mit einer freundlichen Anrede und enthält Wohnung, Reisedaten, Personen, Hunde, Preis und die Kontaktdaten des Gastes."],
   ["Unter welcher Adresse läuft meine Website?","Sie haben drei Möglichkeiten: sofort als Unterseite wie nordseebnb.de/ihr-name, als eigene Subdomain wie ihr-name.nordseebnb.de (meist innerhalb von ein bis zwei Tagen eingerichtet) oder unter Ihrer eigenen Domain wie www.meine-ferienwohnung.de. Immer mit sicherer HTTPS-Verbindung."],
   ["Kann ich Booking.com und Airbnb verbinden?","Ja, auf Wunsch über den Kalender-Abgleich (iCal), den beide Portale anbieten: Belegte Tage von Booking.com und Airbnb werden automatisch in Ihren Kalender übernommen und umgekehrt – so vermeiden Sie Doppelbuchungen. Preise und Beschreibungen pflegen Sie dort weiter wie gewohnt. Die Portale aktualisieren den Abgleich meist innerhalb einer Stunde."],
-  ["Bekommen meine Gäste Bestätigungen per WhatsApp?","Ja. Viele Gäste nutzen nur WhatsApp – deshalb können Anfrage, Angebot und Buchungsbestätigung auch per WhatsApp laufen, mit freundlicher, persönlicher Ansprache. Beim Buchungsservice und Vollservice übernehmen wir das für Sie."],
+  ["Bekommen meine Gäste Bestätigungen per WhatsApp?","Ja. Viele Gäste nutzen nur WhatsApp – deshalb können Anfrage, Angebot und Buchungsbestätigung auch per WhatsApp laufen, mit freundlicher, persönlicher Ansprache. Beim Buchungsservice übernehmen wir das für Sie."],
   ["Welche Inseln sind dabei?","Alle bewohnten Nordseeinseln: Sylt, Föhr, Amrum, Pellworm und Nordstrand, die Halligen, Helgoland und Neuwerk sowie Borkum, Juist, Norderney, Baltrum, Langeoog, Spiekeroog und Wangerooge. Für Sylt, Amrum, Föhr und Wangerooge gibt es zusätzlich eigene Seiten: syltbnb.de, amrumbnb.de, foehrbnb.de und wangeroogebnb.de."],
   ["Kann ich das erst einmal ausprobieren?","Ja. Portal-Eintrag und Website + Portal können Sie 14 Tage gratis testen. Ihre Seite läuft in dieser Zeit als Unterseite von nordseebnb.de, Gäste können sie schon sehen und anfragen. Den Download Ihrer fertigen Website, zum Beispiel für die eigene Domain, schalten wir nach Zahlungseingang frei."],
   ["Was ist, wenn sich Preise oder Fotos ändern?","Kurze Nachricht genügt – Änderungen sind inklusive. Neue Preise können Sie auch selbst im Vermieter-Bereich eintragen."]
@@ -1895,13 +1914,13 @@ var LIST = [];
 /* Nordseeinseln – Kurzbeschreibung für Urlauber. reg = Region, faehre = Anreise */
 var REGIONEN=[{k:"nf",n:"Nordfriesische Inseln"},{k:"hal",n:"Halligen"},{k:"of",n:"Ostfriesische Inseln"},{k:"hoch",n:"Helgoland & Neuwerk"}];
 var ORTE=[
- {n:"Sylt",reg:"nf",km:"Größte deutsche Nordseeinsel",faehre:"Autozug ab Niebüll über den Hindenburgdamm, Regionalzug bis Westerland oder Fähre ab Rømø (DK) nach List",lat:54.90,lng:8.31,tags:["40 km Strand","Rotes Kliff","Wanderdünen"],
+ {n:"Sylt",seite:"https://syltbnb.de/",kur:"2026: Gemeinde Sylt (u. a. Westerland, Keitum) 4,10 € pro Tag in der Hauptsaison ab 18 Jahren; die übrigen Gemeinden zwischen 1,50 € und 4,10 €",fplan:"https://www.sylt.de/en/anreise-mobilitaet/autozug-faehre",reg:"nf",km:"Größte deutsche Nordseeinsel",faehre:"Autozug ab Niebüll über den Hindenburgdamm, Regionalzug bis Westerland oder Fähre ab Rømø (DK) nach List",lat:54.90,lng:8.31,tags:["40 km Strand","Rotes Kliff","Wanderdünen"],
   t:"Rund 40 km Sandstrand an der Westküste, das Rote Kliff bei Kampen, die Wanderdünen bei List und reetgedeckte Kapitänshäuser in Keitum. Lebhaft in Westerland, ruhig in Morsum und auf der Wattseite.",
   orte:["Westerland","Wenningstedt-Braderup","Kampen","List","Hörnum","Rantum","Keitum","Morsum","Tinnum","Archsum"]},
- {n:"Föhr",reg:"nf",km:"Grüne Insel im Wattenmeer",faehre:"Fähre ab Dagebüll nach Wyk",lat:54.71,lng:8.50,tags:["Familien","Friesendörfer","Radfahren"],
+ {n:"Föhr",seite:"https://foehrbnb.de/",kur:"2026: 3,50 € pro Tag in der Hauptsaison, 1,80 € in der übrigen Zeit",fplan:"https://www.faehre.de/",reg:"nf",km:"Grüne Insel im Wattenmeer",faehre:"Fähre ab Dagebüll nach Wyk",lat:54.71,lng:8.50,tags:["Familien","Friesendörfer","Radfahren"],
   t:"Marschwiesen, Friesendörfer mit Reetdachhäusern und der Hauptort Wyk mit Promenade und Hafen. Geschützt hinter Sylt und Amrum ist das Klima mild – Föhr wird gern „Friesische Karibik“ genannt. Ideal für Familien und zum Radfahren.",
   orte:["Wyk","Nieblum","Utersum","Oevenum","Süderende","Wrixum"]},
- {n:"Amrum",reg:"nf",km:"Insel mit dem Kniepsand",faehre:"Fähre ab Dagebüll (über Wyk auf Föhr) nach Wittdün",lat:54.64,lng:8.36,tags:["Kniepsand","Leuchtturm","Dünen"],
+ {n:"Amrum",seite:"https://amrumbnb.de/",kur:"2026: 3,50 € pro Tag in der Hauptsaison, 1,80 € in der übrigen Zeit",fplan:"https://www.faehre.de/",reg:"nf",km:"Insel mit dem Kniepsand",faehre:"Fähre ab Dagebüll (über Wyk auf Föhr) nach Wittdün",lat:54.64,lng:8.36,tags:["Kniepsand","Leuchtturm","Dünen"],
   t:"Der Kniepsand an der Westseite ist einer der breitesten Strände Europas. Dahinter Dünen, Kiefernwald und die Dörfer Wittdün, Süddorf, Nebel und Norddorf; der rot-weiße Leuchtturm ist das Wahrzeichen. Bei Ebbe geführte Wattwanderungen nach Föhr.",
   orte:["Wittdün","Süddorf","Steenodde","Nebel","Norddorf"]},
  {n:"Pellworm",reg:"nf",km:"Ruhige Marscheninsel hinterm Deich",faehre:"Fähre ab Nordstrand (Strucklahnungshörn)",lat:54.53,lng:8.65,tags:["Ruhe","Radfahren","Watt"],
@@ -1930,7 +1949,7 @@ var ORTE=[
   t:"Rund 14 Kilometer Sandstrand, hohe Dünen und der Wasserturm als Wahrzeichen. Vom Hafen bringt die Inselbahn die Gäste ins Dorf."},
  {n:"Spiekeroog",reg:"of",km:"Die grüne Insel – autofrei",faehre:"Fähre ab Neuharlingersiel (tideabhängig)",lat:53.77,lng:7.69,tags:["autofrei","Natur","Inselkirche"],
   t:"Viel Grün, Dünen und Salzwiesen, ein ruhiges Dorf mit der alten Inselkirche und im Sommer die Museums-Pferdebahn. Ideal für Familien und Naturfreunde."},
- {n:"Wangerooge",reg:"of",km:"Östlichste bewohnte Ostfriesische Insel – autofrei",faehre:"Fähre ab Harlesiel, Inselbahn in den Ort",lat:53.79,lng:7.90,tags:["autofrei","Westturm","Inselbahn"],
+ {n:"Wangerooge",seite:"https://wangeroogebnb.de/",kur:"Kurbeitrag nach Satzung der Gemeinde (2026 einer der höchsten in Niedersachsen)",fplan:"https://www.bahn.de/",reg:"of",km:"Östlichste bewohnte Ostfriesische Insel – autofrei",faehre:"Fähre ab Harlesiel, Inselbahn in den Ort",lat:53.79,lng:7.90,tags:["autofrei","Westturm","Inselbahn"],
   t:"Familienfreundliche Insel mit langem Strand, Strandpromenade und dem Alten Leuchtturm im Ort. Vom Hafen fährt die Inselbahn durch die Salzwiesen ins Dorf."},
  {n:"Helgoland",reg:"hoch",km:"Deutschlands einzige Hochseeinsel",faehre:"Schiff ab Cuxhaven, Büsum oder Hamburg; Flugzeug",lat:54.18,lng:7.89,tags:["Lange Anna","Kegelrobben","zollfrei"],
   t:"Rote Felsen mitten in der Nordsee, die Felsnadel „Lange Anna“ und Seevögel am Lummenfelsen. Auf der Düne nebenan liegen Kegelrobben und Seehunde am Strand. Einkaufen ist zollfrei; Autos und Fahrräder gibt es auf der Insel nicht."},
@@ -2062,8 +2081,9 @@ function card(l,extra){var p=abPreis(l);
   '<button class="heart" onclick="toggleWish(\''+l.id+'\',event)" aria-label="Merken">'+(WISH.indexOf(l.id)>=0?"♥":"♡")+'</button>'+(l.badge?'<span class="badge">'+esc(l.badge)+'</span>':'')+'</div>'+
   '<div class="bd"><div class="ort2">'+esc(l.ort)+(l.region?' · '+esc(l.region):'')+'</div><h3>'+esc(l.name)+'</h3><div class="typ">'+esc(l.typ||"")+'</div>'+(extra||"")+
   '<div class="meta"><span>'+(l.qm?l.qm+" m² · ":"")+'bis '+l.max+' Pers.</span><span class="preis">'+(p?'<small>ab</small> '+p+' €<small>/Nacht</small>':'auf Anfrage')+'</span></div></div></div>'}
+function adCard(insel){var n=insel||"der Nordsee";return'<div class="card adcard" onclick="geheZu(PORTAL.vmUrl,\'#inselseite\')"><div class="ic">🏡</div><b>Ihr Apartment '+(insel?"auf "+esc(insel):"an der Nordsee")+'?</b><button class="btn small">Hier eintragen ›</button><small>Hier könnte Ihr Apartment werben – eigene Unterseite für 99 € im ersten Jahr, danach 20 € pro Jahr.</small></div>'}
 function renderRows(){
-  $("rowFewo").innerHTML=LIST.filter(function(l){return l.art!=="haus"}).map(function(l){return card(l)}).join("");
+  $("rowFewo").innerHTML=LIST.filter(function(l){return l.art!=="haus"}).map(function(l){return card(l)}).join("")+adCard();
   $("rowHaus").innerHTML=LIST.filter(function(l){return l.art==="haus"}).map(function(l){return card(l)}).join("");
   $("rowHund").innerHTML=LIST.filter(function(l){return l.hund}).map(function(l){return card(l)}).join("");
   ["rowFewo","rowHaus","rowHund"].forEach(function(id){var r=$(id),car=r.parentNode,head=car.previousElementSibling,all=car.nextElementSibling,leer=!r.children.length;[car,head,all].forEach(function(e){if(e)e.classList.toggle("hidden",leer)})});
@@ -2086,7 +2106,7 @@ function renderBaeder(){
   var chips='<div class="ortchips"><button class="'+(ORT_REG?"":"on")+'" onclick="ORT_REG=\'\';renderBaeder()">Alle Inseln</button>'+REGIONEN.map(function(r){return'<button class="'+(ORT_REG===r.k?"on":"")+'" onclick="ORT_REG=\''+r.k+'\';renderBaeder()">'+r.n+'</button>'}).join("")+'</div>';
   $("baederGrid").innerHTML=chips+'<div class="baeder">'+ORTE.filter(function(o){return!ORT_REG||o.reg===ORT_REG}).map(function(b){
     var n=LIST.filter(function(l){var o=ortInfo(l.ort);return o&&o.n===b.n}).length;
-    return'<div class="bad" id="insel-'+slug(b.n)+'"><div class="top"></div><div class="in"><h3>'+esc(b.n)+'</h3><div class="km">'+esc(b.km)+'</div><p>'+esc(b.t)+'</p>'+(b.faehre?'<div class="faehre"><b>Anreise:</b> '+esc(b.faehre)+'</div>':'')+'<div class="otags">'+(b.tags||[]).map(function(t){return"<span>"+esc(t)+"</span>"}).join("")+'</div>'+
+    return'<div class="bad" id="insel-'+slug(b.n)+'"><div class="top"></div><div class="in"><h3>'+esc(b.n)+'</h3><div class="km">'+esc(b.km)+'</div><p>'+esc(b.t)+'</p>'+(b.faehre?'<div class="faehre"><b>Anreise:</b> '+esc(b.faehre)+'</div>':'')+(b.kur?'<div class="faehre"><b>Kurabgabe:</b> '+esc(b.kur)+'</div>':'')+((b.fplan||b.seite)?'<div class="faehre">'+(b.fplan?'<a href="'+b.fplan+'" target="_blank" rel="noopener">🕒 Fahrplan</a>':'')+(b.fplan&&b.seite?' · ':'')+(b.seite?'<a href="'+b.seite+'" target="_blank" rel="noopener">🏝️ Inselseite</a>':'')+'</div>':'')+'<div class="otags">'+(b.tags||[]).map(function(t){return"<span>"+esc(t)+"</span>"}).join("")+'</div>'+
       (n?'<button class="btn small" onclick="filterOrt(\''+b.n+'\');go(\'#ergebnisse\')">'+n+(n===1?" Unterkunft":" Unterkünfte")+' in '+esc(b.n)+' ›</button>':'<small class="muted">Noch keine Unterkünfte eingetragen · <a href="#" onclick="showVm();return false">Vermieter auf '+esc(b.n)+'? Jetzt eintragen</a></small>')+'</div></div>'}).join("")+'</div>'}
 function renderSeasons(){$("seasonBox").innerHTML=SAISONS.map(function(s,i){return'<div class="season '+["","zw","hs"][i]+'"><b>'+s.name+'</b><small>'+s.zeit+'</small></div>'}).join("")}
 
@@ -2135,7 +2155,7 @@ function renderResults(){
   $("resGrid").innerHTML=list.length?list.map(function(l){var ex="";
     if(dated){var f=rangeFree(l,A,B),q=quote(l,A,B,S.erw,S.kids,S.hund?1:0);
       ex='<div><span class="status '+(l.belegt?(f?"free":"busy"):"na")+'">'+(l.belegt?(f?"Frei im Zeitraum":"Teilweise belegt"):"Belegung beim Vermieter")+'</span></div>'+(q&&!q.unknown?'<div style="font-size:.9rem">Gesamt ca. <b>'+euro(q.total)+'</b></div>':'')}
-    return card(l,ex)}).join(""):(S.ort&&ortInfo(S.ort)&&!LIST.some(function(l){var x=ortInfo(l.ort);return x&&x.n===ortInfo(S.ort).n})?(function(oi){return'<div class="emptyisle"><h3>'+esc(oi.n)+' – '+esc(oi.km)+'</h3><p>'+esc(oi.t)+'</p>'+(oi.faehre?'<p class="muted"><b>Anreise:</b> '+esc(oi.faehre)+'</p>':'')+'<p><b>Auf '+esc(oi.n)+' sind noch keine Unterkünfte eingetragen.</b> NordseeBnB ist neu – die ersten Gastgeber kommen gerade dazu. Schauen Sie sich so lange unsere Beispiel-Einträge an.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn small" href="#unterkuenfte">Beispiele ansehen</a><button class="btn small ghost" onclick="showVm()">Vermieter auf '+esc(oi.n)+'? Jetzt eintragen</button></div></div>'})(ortInfo(S.ort)):'<p class="lead">Dafür passt leider keine Unterkunft. Ändern Sie die Suche oder schauen Sie auf die Karte.</p>');
+    return card(l,ex)}).join(""):(S.ort&&ortInfo(S.ort)&&!LIST.some(function(l){var x=ortInfo(l.ort);return x&&x.n===ortInfo(S.ort).n})?(function(oi){return'<div class="emptyisle"><h3>'+esc(oi.n)+' – '+esc(oi.km)+'</h3><p>'+esc(oi.t)+'</p>'+(oi.faehre?'<p class="muted"><b>Anreise:</b> '+esc(oi.faehre)+'</p>':'')+'<p><b>Auf '+esc(oi.n)+' sind noch keine Unterkünfte eingetragen.</b> NordseeBnB ist neu – die ersten Gastgeber kommen gerade dazu. Schauen Sie sich so lange unsere Beispiel-Einträge an.</p>'+adCard(oi.n)+'<p></p><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn small" href="#unterkuenfte">Beispiele ansehen</a><button class="btn small ghost" onclick="showVm()">Vermieter auf '+esc(oi.n)+'? Jetzt eintragen</button></div></div>'})(ortInfo(S.ort)):'<p class="lead">Dafür passt leider keine Unterkunft. Ändern Sie die Suche oder schauen Sie auf die Karte.</p>');
   $("ergebnis").classList.add("on");dimMarkers(list.map(function(l){return l.id}));go("#ergebnis");
 }
 
@@ -2668,6 +2688,7 @@ function exSite(id){var l=LI(id)||SEED.filter(function(x){return x.id===id})[0];
     photos:l.fotos.map(function(f,i){return{src:fsrc(f),cap:capOf(l,i),unit:"u1"}})};
   try{return URL.createObjectURL(new Blob([buildSite(D)],{type:"text/html"}))}catch(e){return""}}
 
+var _ih0=location.hash;setTimeout(function(){if(_ih0==="#inselseite"){if(typeof showVm==="function"&&!document.body.classList.contains("vmode"))showVm();setTimeout(function(){var e=document.getElementById("lInsel");if(e)e.scrollIntoView({behavior:"smooth"})},300)}},700);
 /* ---------- Buchen & veröffentlichen ---------- */
 function publish(){if(!SESSION){AFTER_LOGIN="draft";showLogin(true);return}if(!$("w_ok").checked){toast("Bitte das Häkchen zur verbindlichen Anfrage setzen",3200);$("pubOkRow").scrollIntoView({behavior:"smooth",block:"center"});return}doPublish()}
 function draftToListings(){
@@ -2714,7 +2735,7 @@ var VM_KB_EXTRA = `
 WER WIR SIND: Das Team von Nordsee Webdesign und NordseeBnB (Familie Fries) – seit über 20 Jahren selbst Vermieter von Ferienwohnungen und Gastgeber, mit eigenen Unterkünften an der Ostsee (Thiessow auf Rügen) und in Venedig/Burano. Die Technik, die wir für unsere eigenen Gäste entwickelt haben, stellen wir jetzt Vermietern an der Nordsee zur Verfügung. NordseeBnB ist neu; auf den Nordseeinseln sind noch keine Unterkünfte eingetragen. Nenne keine weiteren Namen.
 VORTEILE FÜR VERMIETER: Hotline rund um die Uhr (24/7) – Gäste bekommen sofort Antwort, statt ein, zwei Tage oder länger zu warten; neueste Technik inklusive; mehr Umsatz durch schnelle Antworten und Direktbuchungen ohne Provision; mehr Kundennähe; mehr Freizeit durch Automatisierung; der Vermieter behält Kontrolle und Übersicht, jede Anfrage landet bei ihm; wir verbinden die Gästewelt mit ihm; zufriedene Urlauber geben positives Feedback.
 BOOKING.COM UND AIRBNB: Auf Wunsch Kalender-Abgleich per iCal – belegte Tage werden automatisch übernommen, Preise und Texte pflegt der Vermieter dort weiter; Aktualisierung meist innerhalb einer Stunde.
-WHATSAPP: Anfragen, Angebote und Buchungsbestätigungen können auch per WhatsApp laufen; beim Buchungsservice und Vollservice übernehmen wir das.
+WHATSAPP: Anfragen, Angebote und Buchungsbestätigungen können auch per WhatsApp laufen; beim Buchungsservice übernehmen wir das.
 DAS PRODUKT: Ein neues Buchungsportal mit eigener Website für jeden Vermieter. Besonderheit: Ein digitaler Sprachassistent beantwortet die Fragen der Gäste per Sprache – rund um die Uhr, in Deutsch, Englisch, Dänisch, Niederländisch und Französisch. Er kennt Wohnungen, Preise und freie Termine, rechnet Preise aus (Nächte, Saison, Endreinigung, Hund), kennt die Insel (Strand, Fähre, Anreise, Ausflüge) und nimmt Anfragen auf. Er bucht nicht verbindlich; die Anfrage geht freundlich formuliert per E-Mail oder WhatsApp an den Vermieter. So ein sprechendes Buchungsportal gibt es bisher kaum.
 SO GEHT ES: 1. Erzählen: Der Vermieter tippt aufs Mikrofon und sagt seine Wohnungen (Name, Ort, Größe, Personen, Hund ja/nein) und Preise für Vor- und Nachsaison, Zwischensaison und Hauptsaison; die Saisonzeiten gibt das Portal vor. 2. Fotos hochladen: Die KI erkennt die Räume (Schlafzimmer, Wohnzimmer, Bad, Terrasse) und schreibt Bildunterschriften; alternativ reichen Screenshots eines bestehenden Inserats. 3. Online gehen: Vorschau sofort, danach unter eigener Domain, als Subdomain ihr-name.nordseebnb.de oder als Unterseite nordseebnb.de/ihr-name; zusätzlich mit Preis auf der Karte von NordseeBnB. Der erste Entwurf dauert etwa 10 Minuten und ist kostenlos und unverbindlich. Für den Zugang gibt es einen 6-stelligen Bestätigungscode per E-Mail.
 WEBSITE-INHALT: Fotogalerie mit Bildunterschriften, Preisrechner, Belegungskalender, Anfragen per E-Mail und WhatsApp mit freundlicher Anrede, Karte und Anfahrt, Eintrag auf der Portal-Karte, fürs Handy gemacht, eigene Adresse, Sprachassistent für Gäste, optional mehrsprachig, Änderungen an Preisen und Fotos inklusive.
@@ -2722,8 +2743,8 @@ ANGEBOTE:
 - Portal-Eintrag: 0 % Provision; feste Gebühr pro Jahr, Preis auf Anfrage. Eintrag mit Fotos, Preisen, Beschreibung, Punkt auf der Portal-Karte, Anfragen per E-Mail oder WhatsApp, eigene Objektnummer.
 - Website + Portal (am beliebtesten): 0 % Provision; feste Gebühr pro Jahr, Preis auf Anfrage. Eigene Website mit Galerie, Preisrechner und Karte, Sprachassistent für Gäste, Subdomain oder eigene Domain, Änderungen inklusive.
 - Website + Buchungsservice: 10 % Provision je Buchung (große Buchungsportale behalten meist 15 % und mehr, je nach Portal und Programm bis zu 25 %). Wir beantworten Anfragen und schicken Angebote, führen Belegungsplan, Rechnungen und Zahlungseingang; Website und Gäste-Assistent in 5 Sprachen.
-- Vollservice: 20 % Provision je Buchung (Vollservice vor Ort kostet sonst meist 25 bis 30 %). Der Vermieter muss sich um nichts kümmern: Reinigung und Wäsche nach jedem Gast, Schlüsselübergabe und Ansprechpartner vor Ort, Hilfe bei kleinen Reparaturen, Gästebetreuung von der Anfrage bis zur Abreise, Kurkarten, Kurabgabe und Organisation. WICHTIG: Auf den Nordseeinseln arbeiten wir dafür mit Partnern vor Ort; ob der Vollservice auf einer bestimmten Insel möglich ist, klären wir persönlich – sag nichts zu, sondern biete einen Rückruf an.
-- Die festen Jahresgebühren für Portal-Eintrag und Website nennen wir persönlich – Preis auf Anfrage. Keine Beträge erfinden.
+- Vollservice (Reinigung, Schlüsselübergabe, Hilfe vor Ort) bieten wir an der Nordsee derzeit NICHT an – wir suchen erst Partner vor Ort. Sag das ehrlich und biete an, den Vermieter zu informieren, sobald es soweit ist.
+- INSELSEITE (Website als Unterseite): 99 € im ersten Jahr, danach 20 € pro Jahr, 0 % Provision. Vermieter auf Sylt, Amrum, Föhr oder Wangerooge bekommen ihre Unterseite auf syltbnb.de, amrumbnb.de, foehrbnb.de bzw. wangeroogebnb.de; alle anderen Orte unter nordseebnb.de. 14 Tage gratis testen. Den Preis für den reinen Portal-Eintrag nennen wir persönlich – keine anderen Beträge erfinden.
 SAISONZEITEN IM PORTAL: Vor- und Nachsaison 06.01.–31.03. und 01.11.–22.12.; Zwischensaison 01.04.–15.06. und 15.09.–31.10.; Hauptsaison 16.06.–14.09. und 23.12.–05.01.
 BESTEHENDE PORTALE: Der Vermieter kann andere Portale behalten; die eigene Website ergänzt sie, damit Stammgäste und Empfehlungen direkt und ohne Provision buchen.
 BEISPIEL-WEBSITES: Dünenvilla 3 und Dünenvilla 5 (unsere eigenen Wohnungen in Thiessow auf Rügen, mit dem Baukasten erstellt) sowie die Live-Website Dünenvilla & Strandvilla (Live-Belegung, Sofort-Angebot). Alle sind auf dieser Seite unter „Beispiele“ zu sehen.
@@ -2731,13 +2752,13 @@ INSELN: NordseeBnB deckt alle bewohnten Nordseeinseln ab: Sylt, Föhr, Amrum, Pe
 KONTAKT: E-Mail dbuchung@gmail.com. Auf dieser Seite gibt es unten das Formular „Rückruf oder Nachricht“. Wenn der Vermieter einen Rückruf möchte, frag nach Name, Telefonnummer und gern der E-Mail-Adresse und der Zahl seiner Unterkünfte; diese Angaben werden nach dem Gespräch in das Rückruf-Formular übernommen, der Vermieter schickt es dann selbst ab.`;
 
 var V={mode:"vermieter",pc:null,dc:null,stream:null,timer:null,t0:0,lastRole:null,lastEl:null,conv:[]};
-var V_CHIPS={vermieter:["Was kostet der Vollservice?","Wie läuft das mit der Website ab?","Kann ich Booking behalten?","Ich hätte gern einen Rückruf"],
+var V_CHIPS={vermieter:["Was kostet meine Inselseite?","Wie läuft das mit der Website ab?","Kann ich Booking behalten?","Ich hätte gern einen Rückruf"],
              gast:["Welche Inseln sind autofrei?","Wie komme ich nach Sylt?","Was kostet die Dünenvilla 3 für eine Woche?","Wo ist es auf den Halligen am ruhigsten?"]};
 function vMode(m){if(V.pc)vStop();V.mode=m;document.querySelectorAll(".vtabs button").forEach(function(b){b.classList.toggle("on",b.dataset.m===m)});
   $("vTitle").textContent=m==="gast"?"Als Gast testen":"Fragen zum Angebot";
   $("vChips").innerHTML=V_CHIPS[m].map(function(c){return"<span>„"+esc(c)+"“</span>"}).join("");
   $("vLog").innerHTML="";V.lastRole=null;
-  vSay("sys",m==="gast"?"So erleben Ihre Gäste den Assistenten – hier mit den Beispiel-Wohnungen Dünenvilla 3 und 5 und allen Nordseeinseln. Fragen Sie einfach nach Preisen, freien Terminen, Fähren oder Ausflugszielen.":"Fragen Sie alles zu unserem Angebot – Preise, Ablauf, Vollservice, Ihre Website. Auf Wunsch nehmen wir Ihre Angaben für einen Rückruf auf.")}
+  vSay("sys",m==="gast"?"So erleben Ihre Gäste den Assistenten – hier mit den Beispiel-Wohnungen Dünenvilla 3 und 5 und allen Nordseeinseln. Fragen Sie einfach nach Preisen, freien Terminen, Fähren oder Ausflugszielen.":"Fragen Sie alles zu unserem Angebot – Preise, Ablauf, Ihre Inselseite. Auf Wunsch nehmen wir Ihre Angaben für einen Rückruf auf.")}
 function vOpen(m,autostart){$("vPanel").classList.add("on");$("vFab").classList.add("hidden");vMode(m||(document.body.classList.contains("vmode")?"vermieter":"gast"));if(autostart)vStart()}
 function vClose(){vStop();$("vPanel").classList.remove("on");$("vFab").classList.remove("hidden")}
 function vSay(role,text){var log=$("vLog");
@@ -2753,12 +2774,12 @@ function seitenText(sel,ohne){var el=document.querySelector(sel);if(!el)return""
   c.querySelectorAll("h1,h2,h3,h4,h5,li,p,div,section,tr,dt,dd,small,b").forEach(function(x){x.insertAdjacentText("afterend","\n")});
   return c.textContent.replace(/[ \t\u00a0]+/g," ").replace(/\n\s*\n+/g,"\n").replace(/^ +| +$/gm,"").trim()}
 function kbOrte(){return"\nNORDSEEINSELN (Beschreibungen von der Website):\n"+REGIONEN.map(function(r){return"["+r.n+"]\n"+ORTE.filter(function(o){return o.reg===r.k}).map(function(o){
-  var n=LIST.filter(function(l){var x=ortInfo(l.ort);return x&&x.n===o.n}).length;return"- "+o.n+" ("+o.km+"; Stichworte: "+(o.tags||[]).join(", ")+"): "+o.t+(o.faehre?" Anreise: "+o.faehre+".":"")+(o.orte?" Orte: "+o.orte.join(", ")+".":"")+" Unterkünfte im Portal: "+(n||"noch keine")+"."}).join("\n")}).join("\n")+"\n"}
+  var n=LIST.filter(function(l){var x=ortInfo(l.ort);return x&&x.n===o.n}).length;return"- "+o.n+" ("+o.km+"; Stichworte: "+(o.tags||[]).join(", ")+"): "+o.t+(o.faehre?" Anreise: "+o.faehre+".":"")+(o.orte?" Orte: "+o.orte.join(", ")+".":"")+(o.kur?" Kurabgabe: "+o.kur+".":"")+" Unterkünfte im Portal: "+(n||"noch keine")+"."}).join("\n")}).join("\n")+"\n"}
 function kbPakete(){return"\nPAKETE FÜR VERMIETER:\n"+PAKETE.map(function(p){return"- "+p.name+" – Provision: "+p.provision+(p.vergleich?" ("+p.vergleich+")":"")+(p.preis?"; Preis: "+p.preis:"")+". Leistungen: "+p.leistungen.join("; ")+"."}).join("\n")+
   "\nGratis-Test: Portal-Eintrag und Website + Portal 14 Tage gratis als Unterseite von nordseebnb.de; Download der fertigen Website erst nach Zahlungseingang."+
   "\nSprachassistent auf der Vermieter-Website: im Gratis-Test 20 Minuten, danach 100 Minuten pro Monat; ist das Kontingent aufgebraucht, verweist er Gäste auf das Anfrageformular."+
   "\nBelegungsplan: grün frei mit Preis pro Nacht, gelb angefragt mit Preis, rot belegt ohne Preis, An- und Abreisetage diagonal geteilt, Samstage orange und Sonn-/Feiertage rot umrandet."+
-  "\nErweiterung automatische Gästebetreuung (Buchungsservice/Vollservice): Überwachung von Anzahlung und Restzahlung mit automatischer Erinnerung, Begrüßung am Anreisetag, Dankeschön mit Bitte um Weiterempfehlung am Abreisetag – per E-Mail automatisch, per WhatsApp mit fertigem Text.\n"}
+  "\nErweiterung automatische Gästebetreuung (Buchungsservice): Überwachung von Anzahlung und Restzahlung mit automatischer Erinnerung, Begrüßung am Anreisetag, Dankeschön mit Bitte um Weiterempfehlung am Abreisetag – per E-Mail automatisch, per WhatsApp mit fertigem Text.\n"}
 function kbInfo(k){return(INFO[k]||"").replace(/<[^>]+>/g," ").replace(/&amp;/g,"&").replace(/\s+/g," ").trim()}
 function kbRest(kb,sel,ohne,titel){var rest=28500-kb.length;if(rest<800)return kb;return kb+"\n"+titel+":\n"+seitenText(sel,ohne).slice(0,rest-50)+"\n"}
 
@@ -2773,7 +2794,7 @@ function kbGast(){
     if(l.belegt)kb+="Belegt (Abreisetag wieder frei): "+(l.belegt.length?l.belegt.map(function(b){return String(b.von||b.from).slice(0,10)+" bis "+String(b.bis||b.to).slice(0,10)}).join(", "):"keine Einträge")+". Alle anderen Tage frei.\n";else kb+="Freie Termine: beim Vermieter erfragen.\n";
     if(l.feat&&l.feat.length)kb+="Ausstattung: "+l.feat.join(", ")+".\n";
     if(l.kurz)kb+="Beschreibung: "+l.kurz+"\n"});
-  kb+="\nKURABGABE NORDSEE: Jede Insel erhebt eine eigene Kurabgabe bzw. einen Gästebeitrag nach ihrer Satzung – nenne dafür keine Beträge, sondern verweise auf den Vermieter oder die Gemeinde. Nur für die Beispiel-Wohnungen in Thiessow (Ostseebad Mönchgut, Rügen) gilt 2026 pro Tag: Erwachsene 3,37 € Hauptsaison / 2,54 € Nebensaison; Kinder 7–14 Jahre 1,69 € / 1,27 €; unter 7 frei; Hunde 1,00 €.\nREGION: Nordfriesische und Ostfriesische Inseln, Halligen, Helgoland und Neuwerk; fast alle im Wattenmeer (UNESCO-Welterbe seit 2009). Viele Fähren fahren tideabhängig – genaue Abfahrtszeiten immer bei der Reederei prüfen, keine Uhrzeiten nennen. Autofrei sind u. a. Juist, Baltrum, Langeoog, Spiekeroog, Wangerooge und Helgoland.\n"+kbOrte();
+  kb+="\nKURABGABE NORDSEE: Jede Insel erhebt eine eigene Kurabgabe bzw. einen Gästebeitrag nach ihrer Satzung. Nenne nur die Beträge, die unten bei der jeweiligen Insel stehen (Stand 2026), sonst verweise auf den Vermieter oder die Gemeinde. Nur für die Beispiel-Wohnungen in Thiessow (Ostseebad Mönchgut, Rügen) gilt 2026 pro Tag: Erwachsene 3,37 € Hauptsaison / 2,54 € Nebensaison; Kinder 7–14 Jahre 1,69 € / 1,27 €; unter 7 frei; Hunde 1,00 €.\nREGION: Nordfriesische und Ostfriesische Inseln, Halligen, Helgoland und Neuwerk; fast alle im Wattenmeer (UNESCO-Welterbe seit 2009). Viele Fähren fahren tideabhängig – genaue Abfahrtszeiten immer bei der Reederei prüfen, keine Uhrzeiten nennen. Autofrei sind u. a. Juist, Baltrum, Langeoog, Spiekeroog, Wangerooge und Helgoland.\n"+kbOrte();
   kb+="\nHINWEISE DES PORTALS: "+kbInfo("agb")+"\nBELEGUNGSPLAN: grün frei mit Preis, gelb angefragt, rot belegt; An- und Abreisetage diagonal geteilt.\n";
   return kbRest(kb,"#gast","#ergebnis,#unterkuenfte,#orte,#karte,#baeder,.card,.row","WEITERER TEXT DER GÄSTESEITE").slice(0,29000)}
 function vStart(){
