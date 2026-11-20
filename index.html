@@ -1822,7 +1822,7 @@ var PAKETE = [
   { id:"service", name:"Website + Buchungsservice", provision:"10 %",
     leistungen:["Alles aus Inselseite + Portal","Wir beantworten Anfragen und schicken Angebote","Belegungsplan, Rechnungen und Zahlungseingang","Website und Gäste-Assistent in 5 Sprachen"] }
 ];
-var VOICE = { endpoint: "https://blue-lagune-proxy.friesh.workers.dev/live", maxMinutes: 5 };
+var VOICE = { endpoint: "https://nordsee-voice.friesh.workers.dev/live", maxMinutes: 5 };   // Worker „nordsee-voice“ (Datei nordsee-voice-worker.js)
 var GROSSPORTALE = "15–25 %";   // Vergleichswert für die Verkaufsseite
 
 /* Saisonzeiten gibt das Portal vor (Monat*100+Tag) */
@@ -2688,7 +2688,7 @@ function exSite(id){var l=LI(id)||SEED.filter(function(x){return x.id===id})[0];
     photos:l.fotos.map(function(f,i){return{src:fsrc(f),cap:capOf(l,i),unit:"u1"}})};
   try{return URL.createObjectURL(new Blob([buildSite(D)],{type:"text/html"}))}catch(e){return""}}
 
-var _ih0=location.hash;setTimeout(function(){if(_ih0==="#inselseite"){if(typeof showVm==="function"&&!document.body.classList.contains("vmode"))showVm();setTimeout(function(){var e=document.getElementById("lInsel");if(e)e.scrollIntoView({behavior:"smooth"})},300)}},700);
+var _ih0=location.hash;setTimeout(function(){if(_ih0==="#assistent"&&typeof vOpen==="function")vOpen("gast")},900);setTimeout(function(){if(_ih0==="#inselseite"){if(typeof showVm==="function"&&!document.body.classList.contains("vmode"))showVm();setTimeout(function(){var e=document.getElementById("lInsel");if(e)e.scrollIntoView({behavior:"smooth"})},300)}},700);
 /* ---------- Buchen & veröffentlichen ---------- */
 function publish(){if(!SESSION){AFTER_LOGIN="draft";showLogin(true);return}if(!$("w_ok").checked){toast("Bitte das Häkchen zur verbindlichen Anfrage setzen",3200);$("pubOkRow").scrollIntoView({behavior:"smooth",block:"center"});return}doPublish()}
 function draftToListings(){
@@ -2815,12 +2815,12 @@ function vStart(){
       return fetch(VOICE.endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({sdp:offer.sdp,mode:gast?"gast":"vermieter",
         kb:gast?kbGast():kbVermieter(),brand:(gast?PORTAL.name:PORTAL.vmName),form:false,lang:"de",
         greeting:gast?"Moin und herzlich willkommen bei NordseeBnB! Ich helfe Ihnen gern bei der Wahl der Insel und der passenden Unterkunft. Wonach suchen Sie?":"Moin und herzlich willkommen bei Nordsee Webdesign! Schön, dass Sie da sind. Ich beantworte gern Ihre Fragen rund um Ihre eigene Website und unser neues Buchungsportal. Was möchten Sie wissen?"})})})
-    .then(function(r){if(!r.ok)throw new Error("Server "+r.status);return r.json()}).then(function(j){if(!j.sdp)throw new Error(j.error||"keine Antwort");return V.pc.setRemoteDescription({type:"answer",sdp:j.sdp})})
+    .then(function(r){if(!r.ok)return r.json().catch(function(){return{}}).then(function(j){throw new Error("Server "+r.status+(j&&j.error?" – "+j.error:""))});return r.json()}).then(function(j){if(!j.sdp)throw new Error(j.error||"keine Antwort");return V.pc.setRemoteDescription({type:"answer",sdp:j.sdp})})
     .then(function(){V.t0=Date.now();st.textContent="Verbunden – sprechen Sie einfach los";
       V.timer=setInterval(function(){var s=Math.floor((Date.now()-V.t0)/1000),left=VOICE.maxMinutes*60-s;$("vTime").textContent=Math.floor(s/60)+":"+String(s%60).padStart(2,"0");
         if(left===30)vSay("sys","Noch 30 Sekunden – danach endet das Gespräch automatisch.");if(left<=0)vStop("Gespräch nach "+VOICE.maxMinutes+" Minuten beendet. Schreiben Sie uns gern über das Formular.")},1000)});
   }).catch(function(err){console.error(err);var m=String(err&&err.message||err),code=(m.match(/Server (\d+)/)||[])[1];
-    var hint=code==="403"?" (Technik: Diese Domain ist im Worker noch nicht freigegeben – ALLOWED_ORIGINS.)":code==="502"?" (Technik: Der Sprachdienst hat die Sitzung abgelehnt.)":code?" (Technik: Fehler "+code+")":/Failed to fetch|NetworkError|Load failed/i.test(m)?" (Technik: Worker nicht erreichbar.)":"";
+    var hint=code==="403"?" (Technik: Diese Domain ("+location.origin+") ist im Worker nicht freigegeben.)":code==="500"?" (Technik: Im Worker fehlt der OpenAI-Schlüssel OPENAI_KEY.)":code==="502"?" (Technik: OpenAI hat die Sitzung abgelehnt – Schlüssel, Guthaben oder Modell prüfen.)":code?" (Technik: "+m+")":/Failed to fetch|NetworkError|Load failed/i.test(m)?" (Technik: Worker nicht erreichbar – zum Prüfen "+VOICE.endpoint+" im Browser öffnen.)":"";
     vStop(err&&err.name==="NotAllowedError"?"Ohne Mikrofon-Freigabe ist kein Gespräch möglich. Bitte erlauben Sie das Mikrofon in den Browser-Einstellungen.":"Der Assistent ist gerade nicht erreichbar. Bitte versuchen Sie es später oder schreiben Sie uns über das Formular."+hint)})}
 function vEvent(ev){var o=$("vOrb"),st=$("vStatus");
   switch(ev.type){
